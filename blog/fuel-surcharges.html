@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Fuel Surcharges are Calculated and Verified (2026)</title>
+    <meta name="description"
+        content="Why is there a fuel surcharge on my invoice? Learn how LTL carriers calculate FSC using the DOE index and how to verify if you are being overcharged.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Freight Fuel Surcharges Explained">
+    <meta property="og:description" content="Verify your freight invoice fees.">
+    <meta property="og:url" content="https://freightclasscalc.com/blog/fuel-surcharges.html">
+    <meta property="og:image" content="https://freightclasscalc.com/og-image-fuel.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .blog-post {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .blog-meta {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .article-body h2 {
+            color: var(--text-heading);
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .article-body p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: var(--text-body);
+        }
+
+        .cta-box {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary-color);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="../index.html" class="logo">
+                <span class="logo-icon">📦</span>
+                <span class="logo-text">Freight<span class="highlight">Class</span>Calc</span>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html">Calculator</a></li>
+                    <li><a href="../blog/index.html">Blog</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <article class="blog-post">
+        <header class="blog-header">
+            <h1>How Fuel Surcharges are Calculated and Verified</h1>
+            <div class="blog-meta">Updated: January 30, 2026 • 5 min read</div>
+        </header>
+        <img src="img/article-18-fuel.png" alt="Fuel Surcharges and DOE Trends"
+            style="width:100%; border-radius: 12px; margin-bottom: 2rem;">
+
+        <div class="article-body">
+            <p>You agree to a base rate of $200 for your LTL shipment. You've checked the density, you've confirmed the
+                NMFC code, and you've accounted for the liftgate. But when the invoice arrives, it’s not $200—it’s $268.
+                Where did that extra $68 come from? In 95% of cases, that line item is the **Fuel Surcharge (FSC)**.</p>
+
+            <p>In 2026, the fuel surcharge has evolved from a simple "extra fee" into a sophisticated pricing engine.
+                With the transition toward greener fuels and electric fleets, understanding how this fee is calculated
+                is essential for any shipper looking to audit their invoices and protect their bottom line. This guide
+                reveals the mechanics of the FSC and how to ensure you aren't being overcharged for the energy that
+                moves your freight.</p>
+
+            <h2>Phase 1: Why FSC Even Exists</h2>
+            <p>Freight carriers operate on razor-thin margins. Because diesel fuel is one of their largest and most
+                volatile expenses (often making up 20-30% of operating costs), they cannot commit to "Fixed Rates" for
+                12-month contracts. If fuel jumps 50 cents in a week, a carrier with a fixed rate would go bankrupt.
+                <br>**The Solution:** The FSC acts as a "Shock Absorber." It allows the base freight rate to remain
+                stable while the "Energy Cost" fluctuates based on market reality.
+            </p>
+
+            <h2>Phase 2: The DOE Index—The Monday Ritual</h2>
+            <p>Most US carriers link their FSC to a single source of truth: the **U.S. Department of Energy (DOE)
+                On-Highway Diesel Fuel Price Index**.
+                <br>Every Monday at approximately 4:00 PM EST, the DOE updates the national and regional average diesel
+                prices. Carriers then "set" their surcharge for the following week based on this number.
+                <br>**The Pro Tip:** If the DOE index drops significantly on a Monday evening, shipments picked up on
+                Tuesday will be billed at the new, lower rate. If you have a massive volume of freight, waiting 12 hours
+                for the "Monday Reset" can save you thousands of dollars over the course of a year.
+            </p>
+
+            <h2>The "Matrix": Reading the FSC Table</h2>
+            <p>Every carrier has a **Fuel Surcharge Matrix** buried in their Rules Tariff. It is a simple "If/Then"
+                table.
+                <br>• If Diesel is $4.00 - $4.05, FSC is 32.5%.
+                <br>• If Diesel is $4.05 - $4.10, FSC is 32.8%.
+                <br>**The Baseline:** Most tables have a "Base" fuel price, usually between $1.10 and $1.30 per gallon.
+                This is the price where the FSC is 0%. Since we haven't seen $1.20 diesel since the late 1990s, the FSC
+                is essentially a permanent, variable tax on every shipment.
+            </p>
+
+            <h2>Regional Variances: The "PADD" Factor</h2>
+            <p>Diesel isn't the same price in Texas as it is in California. The DOE breaks the US into **PADD (Petroleum
+                Administration for Defense Districts)** regions.
+                <br>• **PADD 1:** East Coast
+                <br>• **PADD 5:** West Coast (California is its own sub-region)
+                <br>While most LTL carriers use the **National Average**, some regional carriers (especially in the
+                West) use the **PADD 5 Average**, which is often $0.60 to $1.00 higher per gallon. When auditing your
+                bills, make sure you know which geographic index your carrier is using.
+            </p>
+
+            <div class="cta-box">
+                <h3>Is Your Base Rate Too High?</h3>
+                <p>The Fuel Surcharge is a percentage of your base rate. If your density is wrong and your base rate is
+                    inflated, your FSC will be inflated too.</p>
+                <a href="../index.html" class="cta-btn">Calculate Your Correct Density</a>
+            </div>
+
+            <h2>LTL vs. FTL: Two Different Math Problems</h2>
+            <p>The way you pay for fuel depends on how much of the trailer you are using:
+                <br>**LTL (Less-Than-Truckload): Percentage-Based.**
+                <br>Carriers pool multiple shipments. They calculate the total cost of the "Line Haul" and apply a
+                percentage FSC to each individual invoice. If your freight is $500 and the FSC is 40%, you pay $200 for
+                fuel.
+                <br>**FTL (Full Truckload): Mileage-Based.**
+                <br>FTL is a dedicated move. Instead of a percentage, you usually pay a "Cents Per Mile" (CPM)
+                surcharge. If the rate is $0.55 per mile and you ship 1,000 miles, the FSC is $550, regardless of the
+                base freight price. This is generally more transparent and easier to audit.
+            </p>
+
+            <h2>2026 Disruption: The "EV" and "Clean Fuel" surcharge</h2>
+            <p>By 2026, a significant portion of short-haul and drayage fleets are electric. This has created a "Unit of
+                Energy" debate.
+                <br>**The Shift:** Some forward-thinking carriers are moving away from the "Diesel Index" and toward an
+                **Energy Surcharge Index**. This tracks a blend of diesel prices and regional electricity
+                (Kilowatt-Hour) rates. Shippers using these green fleets can often negotiate a "Sustainability Discount"
+                where the FSC is 10-15% lower than the diesel equivalent, rewarding them for using the cleaner fleet.
+            </p>
+
+            <h2>Can You Negotiate the FSC? (Yes!)</h2>
+            <p>Many shippers think the FSC is "Law." It isn't. It is a contract term.
+                <br>If you ship high volume, you can negotiate a **Discounted Fuel Table**. For example, you can ask for
+                a table where the increments are 0.25% instead of 0.50%, or where the "Base" is $2.00 instead of $1.20.
+                While carriers are protective of their fuel margins, a "Fuel Cap" or "Custom Matrix" is one of the most
+                effective ways to lower your total logistics spend.
+            </p>
+
+            <h2>How to Audit for FSC Overcharges</h2>
+            <p>1. **Date Check:** Does the FSC on the invoice match the DOE index rate for the *Actual Week of Pickup*
+                (not the week of the quote)?
+                <br>2. **Matrix Check:** Did the carrier apply their "Current" tariff or an "Old" one?
+                <br>3. **Math Check:** Is the FSC calculated on the *Discounted* rate or the *Gross* rate? (It should
+                always be on the discounted net freight charge).
+            </p>
+
+            <h2>Conclusion: Don't Let Fuel Burn Your Budget</h2>
+            <p>The Fuel Surcharge is a necessary part of the logistics ecosystem, but it shouldn't be a "Black Box." By
+                understanding the DOE index, the Monday timing, and the shift toward energy-neutral surcharges in 2026,
+                you can audit your bills with confidence. Remember: the best way to lower your fuel bill is to lower
+                your base freight rate. Use our <a href="../index.html">Density Calculator</a> to ensure your base class
+                is as low as possible, reducing the "Percentage Impact" of fuel across your entire supply chain.</p>
+
+            <div class="cta-box">
+                <h3>Optimize Your Fuel Efficiency</h3>
+                <p>Dense freight is the most energy-efficient freight. Get your metrics right and negotiate from a
+                    position of data strength.</p>
+                <a href="../index.html" class="cta-btn">Calculate Precision Density</a>
+            </div>
+        </div>
+    </article>
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 FreightClassCalc. All rights reserved.</p>
+            <div class="footer-links"><a href="../privacy.html">Privacy</a><a href="../contact.html">Contact</a></div>
+        </div>
+    </footer>
+</body>
+
+</html>

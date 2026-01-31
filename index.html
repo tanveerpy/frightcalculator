@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <title>Freight Class Density Calculator - Determine Your NMFC Class Quickly</title>
+    <meta name="description"
+        content="Free instant Freight Class Density Calculator. Determine the correct NMFC freight class and PCF density to avoid re-classification fees.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://freightclasscalc.com/">
+    <meta property="og:title" content="Freight Class Density Calculator - Determine Your NMFC Class Quickly">
+    <meta property="og:description"
+        content="Free instant Freight Class Density Calculator. Determine the correct NMFC freight class and PCF density to avoid re-classification fees.">
+    <meta property="og:image" content="https://freightclasscalc.com/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://freightclasscalc.com/">
+    <meta property="twitter:title" content="Freight Class Density Calculator - Determine Your NMFC Class Quickly">
+    <meta property="twitter:description"
+        content="Free instant Freight Class Density Calculator. Determine the correct NMFC freight class and PCF density to avoid re-classification fees.">
+    <meta property="twitter:image" content="https://freightclasscalc.com/og-image.jpg">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Freight Class Density Calculator",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Calculate NMFC freight class and density instantly. Avoid re-classification fees with this free tool."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What is Freight Class?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Freight class is a standardized shipping industry pricing classification defined by the NMFTA."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How is Freight Density Calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Density is calculated by dividing the total weight of the shipment (in pounds) by the total volume (in cubic feet)."
+        }
+      }]
+    }
+    </script>
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">📦</span>
+                <span class="logo-text">Freight<span class="highlight">Class</span>Calc</span>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Calculator</a></li>
+                    <li><a href="blog/index.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <h1>Freight Class Density Calculator</h1>
+                    <p class="hero-sub">Instantly determine your NMFC freight class and avoid costly re-classification
+                        fees. Accurate, free, and easy to use.</p>
+                </div>
+
+                <div class="calculator-box" id="calculator">
+                    <div class="calc-header">
+                        <h2>Calculate Density & Class</h2>
+                        <div class="unit-toggle">
+                            <label class="toggle-label">
+                                <input type="checkbox" id="unit-toggle"
+                                    aria-label="Toggle between Imperial and Metric units">
+                                <span class="slider"></span>
+                                <span class="labels" data-on="Metric" data-off="Imperial"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <form id="density-form">
+                        <div id="pallet-rows">
+                            <!-- Pallet rows will be added here dynamically -->
+                        </div>
+
+                        <button type="button" id="add-pallet-btn" class="btn btn-secondary-sm">+ Add Another Handling
+                            Unit</button>
+
+                        <div class="calc-actions">
+                            <button type="button" class="btn btn-primary" id="calculate-btn">Calculate Class</button>
+                            <button type="button" class="btn btn-text" id="reset-btn">Reset</button>
+                        </div>
+                    </form>
+
+                    <div id="results-panel" class="results-panel hidden">
+                        <div class="result-primary">
+                            <span class="label">Estimated Freight Class</span>
+                            <span class="value class-value" id="res-class">--</span>
+                        </div>
+                        <div class="result-grid">
+                            <div class="result-item">
+                                <span class="label">Total Density</span>
+                                <span class="value" id="res-density">--</span>
+                                <span class="unit">PCF (lbs/ft³)</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Total Volume</span>
+                                <span class="value" id="res-volume">--</span>
+                                <span class="unit">ft³</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Total Weight</span>
+                                <span class="value" id="res-weight">--</span>
+                                <span class="unit">lbs</span>
+                            </div>
+                        </div>
+                        <div class="result-feedback" id="res-feedback">
+                            <!-- Dynamic feedback/tips will appear here -->
+                        </div>
+                        <div class="print-action" style="margin-top: 1rem; text-align: center;">
+                            <button type="button" class="btn btn-secondary-sm" id="print-btn">Print / Save
+                                Results</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section" id="info">
+            <div class="container">
+                <div class="content-grid">
+                    <div class="main-content">
+                        <h2>Understanding Freight Class</h2>
+                        <p>Freight class is a standardized shipping industry pricing classification that establishes
+                            uniform parameters for commerce between multiple brokers, warehouses, and carriers. It is
+                            defined by the National Motor Freight Traffic Association (NMFTA) and made available through
+                            the NMFC (National Motor Freight Classification).</p>
+
+                        <h3> The 4 NMFC Factors</h3>
+                        <div class="factors-grid">
+                            <div class="factor-box">
+                                <h4>Density</h4>
+                                <p>The weight per cubic foot. Higher density means lower class and lower cost.</p>
+                            </div>
+                            <div class="factor-box">
+                                <h4>Stowability</h4>
+                                <p>How easy it is to stow the freight properly. Excessive length or strange shapes can
+                                    increase class.</p>
+                            </div>
+                            <div class="factor-box">
+                                <h4>Handling</h4>
+                                <p>Ease of handling. Items requiring special equipment may have a higher class.</p>
+                            </div>
+                            <div class="factor-box">
+                                <h4>Liability</h4>
+                                <p>Probability of freight theft or damage, or damage to adjacent freight.</p>
+                            </div>
+                        </div>
+
+                        <h3>Freight Class Chart</h3>
+                        <div class="table-responsive">
+                            <table class="freight-class-table">
+                                <thead>
+                                    <tr>
+                                        <th>Freight Class</th>
+                                        <th>Density Range (lbs/ft³)</th>
+                                        <th>Common Examples</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Table content to be populated or hardcoded better in next steps if needed, for now standard rows -->
+                                    <tr>
+                                        <td>50</td>
+                                        <td>Over 50</td>
+                                        <td>Clean Freight, Standard Pallets</td>
+                                    </tr>
+                                    <tr>
+                                        <td>55</td>
+                                        <td>35 - 50</td>
+                                        <td>Bricks, Cement, Hardwood Flooring</td>
+                                    </tr>
+                                    <tr>
+                                        <td>60</td>
+                                        <td>30 - 35</td>
+                                        <td>Car Accessories, Car Parts</td>
+                                    </tr>
+                                    <tr>
+                                        <td>65</td>
+                                        <td>22.5 - 30</td>
+                                        <td>Bottled Beverages, Books in Boxes</td>
+                                    </tr>
+                                    <tr>
+                                        <td>70</td>
+                                        <td>15 - 22.5</td>
+                                        <td>Car Engines, Food Items</td>
+                                    </tr>
+                                    <tr>
+                                        <td>77.5</td>
+                                        <td>13.5 - 15</td>
+                                        <td>Tires, Bathtubs</td>
+                                    </tr>
+                                    <tr>
+                                        <td>85</td>
+                                        <td>12 - 13.5</td>
+                                        <td>Crated Machinery, Transmissions</td>
+                                    </tr>
+                                    <tr>
+                                        <td>92.5</td>
+                                        <td>10.5 - 12</td>
+                                        <td>Computers, Monitors, Refrigerators</td>
+                                    </tr>
+                                    <tr>
+                                        <td>100</td>
+                                        <td>9 - 10.5</td>
+                                        <td>Boat Covers, Car Covers, Wine Cases</td>
+                                    </tr>
+                                    <tr>
+                                        <td>110</td>
+                                        <td>8 - 9</td>
+                                        <td>Cabinets, Framed Artwork</td>
+                                    </tr>
+                                    <tr>
+                                        <td>125</td>
+                                        <td>7 - 8</td>
+                                        <td>Small Household Appliances</td>
+                                    </tr>
+                                    <tr>
+                                        <td>150</td>
+                                        <td>6 - 7</td>
+                                        <td>Auto Sheet Metal Parts, Bookcases</td>
+                                    </tr>
+                                    <tr>
+                                        <td>175</td>
+                                        <td>5 - 6</td>
+                                        <td>Clothing, Couches, Stuffed Furniture</td>
+                                    </tr>
+                                    <tr>
+                                        <td>200</td>
+                                        <td>4 - 5</td>
+                                        <td>Aluminum Parts, Mattresses</td>
+                                    </tr>
+                                    <tr>
+                                        <td>250</td>
+                                        <td>3 - 4</td>
+                                        <td>Bamboo Furniture, Mattresses</td>
+                                    </tr>
+                                    <tr>
+                                        <td>300</td>
+                                        <td>2 - 3</td>
+                                        <td>Wood Cabinets, Tables</td>
+                                    </tr>
+                                    <tr>
+                                        <td>400</td>
+                                        <td>1 - 2</td>
+                                        <td>Deer Antlers</td>
+                                    </tr>
+                                    <tr>
+                                        <td>500</td>
+                                        <td>Less than 1</td>
+                                        <td>Ping Pong Balls, Gold Dust</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section" id="compare">
+            <div class="container">
+                <h2>Ready to Ship?</h2>
+                <p>Save up to 30% on your shipping costs by classifying your freight correctly.</p>
+                <button class="btn btn-primary-lg"
+                    onclick="document.getElementById('calculator').scrollIntoView({behavior: 'smooth'})">Calculate
+                    Density</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-branding">
+                <div class="logo" style="justify-content: center; margin-bottom: 1rem;">
+                    <span class="logo-icon">📦</span>
+                    <span class="logo-text" style="color: white;">Freight<span class="highlight">Class</span>Calc</span>
+                </div>
+                <p class="footer-tagline">Save up to 30% on your shipping costs by classifying your freight correctly.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <a href="index.html">Calculator</a>
+                <a href="blog/index.html">Blog</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2026 FreightClassCalc. All rights reserved.</p>
+                <p style="font-size: 0.75rem; margin-top: 0.5rem;">Calculations based on standard NMFC guidelines.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-text">
+            We use cookies to enhance your experience and analyze traffic. By continuing, you agree to our <a
+                href="privacy.html" style="color: #fff; text-decoration: underline;">Privacy Policy</a>.
+        </div>
+        <button id="accept-cookies" class="cookie-btn">Accept</button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Simple Cookie Consent Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const banner = document.getElementById('cookie-banner');
+            const acceptBtn = document.getElementById('accept-cookies');
+
+            if (!localStorage.getItem('cookiesAccepted')) {
+                // Show banner after a slight delay
+                setTimeout(() => {
+                    banner.classList.add('visible');
+                }, 1000);
+            }
+
+            acceptBtn.addEventListener('click', () => {
+                localStorage.setItem('cookiesAccepted', 'true');
+                banner.classList.remove('visible');
+            });
+        });
+    </script>
+</body>
+
+</html>
